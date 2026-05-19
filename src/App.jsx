@@ -1,5 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; // Обов'язкові стилі для повідомлень
 import Home from './pages/Home';
+import Booking from './pages/Booking'; // Імпортуємо нову сторінку
 
 function App() {
   return (
@@ -11,11 +14,12 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
-            {/* Заглушка для майбутньої 10 лаби */}
-            <Route path="/booking/:trainId" element={<div style={{padding: '20px'}}>Сторінка бронювання (Лаба 10)</div>} />
+            <Route path="/booking/:trainId" element={<Booking />} />
           </Routes>
         </main>
       </div>
+      {/* Додаємо контейнер для повідомлень */}
+      <ToastContainer /> 
     </Router>
   );
 }
